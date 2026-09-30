@@ -1,15 +1,15 @@
 Cutoff: 130 mmHg
 Reason: I chose a cutoff of 130mmHg because readings at or above it fall in stage 1 hypertension or higher, which needs monitoring.
-P002
-P015
 P014
-P028
-P005
-P025
-P023
-P018
-P020
-P006
-P011
+P015
 P009
+P011
+P020
+P023
+P028
+P025
+P006
+P005
+P002
+P018
 P022
