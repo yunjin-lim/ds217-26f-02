@@ -80,7 +80,7 @@ def main():
         output_report.write(f"Usable encounters: {len(encounters)}\n")
         output_report.write(f"Skipped rows: {skipped}\n")
         output_report.write(f"Patients seen: {count_patients(encounters)}\n")
-        output_report.write(f"Mean systolic: {mean_systolic(systolic_readings(encounters))} mmHg\n")
+        output_report.write(f"Mean systolic: {mean_systolic(systolic_readings(encounters)):.2f} mmHg\n")
         output_report.write(f"Highest systolic: {max(systolic_readings(encounters))} mmHg\n")
         output_report.write(f"Lowest systolic: {min(systolic_readings(encounters))} mmHg\n")
     # TODO: build the six report lines and write them to output/vitals_report.txt.
@@ -89,11 +89,12 @@ def main():
     #       with the Cutoff line, the Reason line, and one patient ID per line.
 
     followup_path = OUTPUT_DIR/"followup_list.txt"
-    cutoff = 150
+    cutoff = 130
     with open(followup_path, "w", encoding="utf-8") as followup_list:
         followup_list.write(f"Cutoff: {cutoff} mmHg\n")
-        followup_list.write("Reason: blah blah will write it later\n")
-        followup_list.write(f"{patients_at_or_above(encounters, cutoff)}")
+        followup_list.write(f"Reason: I chose a cutoff of {cutoff}mmHg because readings at or above it fall in stage 1 hypertension or higher, which needs monitoring.\n")
+        for patient_id in patients_at_or_above(encounters, cutoff):
+            followup_list.write(f"{patient_id}\n")
     
 
 if __name__ == "__main__":

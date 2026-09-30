@@ -33,15 +33,13 @@ def count_patients(encounters):
 
 def patients_at_or_above(encounters, cutoff):
     """TODO: describe which patient IDs come back."""
-    """keep each distinct patient who need to comback"""
-    """whose systolic value is at or above cutoff"""
+    """print each distinct patient IDs whose systolic value is at or above cutoff
+    and need to come back to the clinic for follow-up
+    """
     # TODO: keep each patient whose systolic reading is at or above cutoff.
-    followup_set = {}
+    followup_set = set()
     for encounter in encounters:
         if encounter["systolic"] >= cutoff:
             followup_set.add(encounter["patient_id"])
-        else:
-            return None
-    followup_list = list(followup_set)
-    for patient in followup_list:
-        print(patient)
+    return followup_set
+   
