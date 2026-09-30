@@ -2,7 +2,8 @@
 
 ## Project description
 
-This project is a clinic encounter summary of one week.
+This project reads the clinic encounter data in `clinic_encounters.csv` using `clinic_report.py` and writes two files: `vitals_report.txt`, which summarizes the usable encounters, and `followup_list.txt`, which lists the patients whose systolic reading is at or above the follow-up cutoff. To make the results reliable, the code checks every row and skips those that are blank, malformed, or outside a plausible blood pressure range.
+
 
 ## Run
 
